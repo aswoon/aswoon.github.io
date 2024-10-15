@@ -1,166 +1,26 @@
-.loader-wrapper {
-    width: 100%;
-    height: 100%;
-    position: fixed;
-    top: 0;
-    left: 0;
-    background-color: whitesmoke;
-    display: block;
-    justify-content: center;
-    align-items: center;
-    z-index: 999;
-    overflow: hidden;
-}
-.loader {
-    --path: #2F3545;
-    --dot: #5628EE;
-    --duration: 3s;
-    width: 44px;
-    height: 44px;
-    position: relative;
-    &:before {
-        content: '';
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        position: absolute;
-        display: block;
-        background: var(--dot);
-        top: 37px;
-        left: 19px;
-        transform: translate(-18px, -18px);
-        animation: dotRect var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-    }
-    svg {
-        display: block;
-        width: 100%;
-        height: 100%;
-        rect,
-        polygon,
-        circle {
-            fill: none;
-            stroke: var(--path);
-            stroke-width: 10px;
-            stroke-linejoin: round;
-            stroke-linecap: round;
-        }
-        polygon {
-            stroke-dasharray: 145 (221 - 145) 145 (221 - 145);
-            stroke-dashoffset: 0;
-            animation: pathTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-        }
-        rect {
-            stroke-dasharray: (256 / 4 * 3) (256 / 4) (256 / 4 * 3) (256 / 4);
-            stroke-dashoffset: 0;
-            animation: pathRect 3s cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-        }
-        circle {
-            stroke-dasharray: (200 / 4 * 3) (200 / 4) (200 / 4 * 3) (200 / 4);
-            stroke-dashoffset: 75;
-            animation: pathCircle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-        }
-    }
-    &.triangle {
-        width: 48px;
-        &:before {
-            left: 21px;
-            transform: translate(-10px, -18px);
-            animation: dotTriangle var(--duration) cubic-bezier(0.785, 0.135, 0.15, 0.86) infinite;
-        }
-    }
+#loader {
+    position: absolute; 
+    left: 50%;
+    top: 50%; /* centering the loader */ 
+    z-index: 1;  /* To display one layer above  */
+    width: 150px;  /* Height and width of the loader container */
+    height: 150px;
+    margin: -75px 0 0 -75px; /* Fixing te size of loader circle*/
+    border: 16px solid #5a5959; /* Border thickness of 16px of solid attribute and of border caller  */
+    border-radius: 50%; /* To make it circle */
+    border-top: 16px solid #3498db; /* To give color to only the top part of the border */
+    -webkit-animation: spin 2s linear infinite;/* To make the loader spin  */
+    animation: spin 2s linear infinite;  
 }
 
-@keyframes pathTriangle {
-    33% {
-        stroke-dashoffset: 74;
-    }
-    66% {
-        stroke-dashoffset: 147;
-    }
-    100% {
-        stroke-dashoffset: 221;
-    }
-}
-
-@keyframes dotTriangle {
-    33% {
-        transform: translate(0, 0);
-    }
-    66% {
-        transform: translate(10px, -18px);
-    }
-    100% {
-        transform: translate(-10px, -18px);
-    }
-}
-
-@keyframes pathRect {
-    25% {
-        stroke-dashoffset: 64;
-    }
-    50% {
-        stroke-dashoffset: 128;
-    }
-    75% {
-        stroke-dashoffset: 192;
-    }
-    100% {
-        stroke-dashoffset: 256;
-    }
-}
-
-@keyframes dotRect {
-    25% {
-        transform: translate(0, 0);
-    }
-    50% {
-        transform: translate(18px, -18px);
-    }
-    75% {
-        transform: translate(0, -36px);
-    }
-    100% {
-        transform: translate(-18px, -18px);
-    }
-}
-
-@keyframes pathCircle {
-    25% {
-        stroke-dashoffset: 125;
-    }
-    50% {
-        stroke-dashoffset: 175;
-    }
-    75% {
-        stroke-dashoffset: 225;
-    }
-    100% {
-        stroke-dashoffset: 275;
-    }
-}
-.center {
-    position:absolute;
-  top: 50%;
-  left: 50% ;
-  width: 100px;
-  height: 100px;
-  min-height: 500px;
-}
-.dribbble {
-    position: block;
-    align-items: center;
-    display: block;
-    right: 20px;
-    bottom: 20px;
-    img {
-        display: block;
-        height: 28px;
-    }
-}
-.loader {
-    display: inline-block;
-    margin: 0 16px;
-}
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+  }
+  @keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+  }
 
 html {
     -webkit-font-smoothing: antialiased;
