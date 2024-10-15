@@ -1,8 +1,8 @@
 #loader {
-    position: relative; 
+    position: absolute; 
     left: 50%;
     top: 50%; /* centering the loader */ 
-    z-index: 1000;  /* To display one layer above  */
+    z-index: 1;  /* To display one layer above  */
     width: 150px;  /* Height and width of the loader container */
     height: 150px;
     margin: -75px 0 0 -75px; /* Fixing te size of loader circle*/
@@ -13,6 +13,9 @@
     animation: spin 2s linear infinite;  
 }
 
+#container {
+    display : none  /* To hide the content div */
+}
 @-webkit-keyframes spin {
     0% { -webkit-transform: rotate(0deg); }
     100% { -webkit-transform: rotate(360deg); }
