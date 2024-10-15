@@ -1,6 +1,21 @@
 <!DOCTYPE html>
 <html lang="en"> 
-    <div id="loader"></div>
+
+<section class="loader">
+
+    <div class="slider" style="--i:0">
+    </div>
+    <div class="slider" style="--i:1">
+    </div>
+    <div class="slider" style="--i:2">
+    </div>
+    <div class="slider" style="--i:3">
+    </div>
+    <div class="slider" style="--i:4">
+    </div>
+  </section>
+
+
     <div id="container"> 
     <head>
         <meta charset="utf-8">
@@ -13,7 +28,7 @@
     <script>
             $(document).ready(function () { /* When the content is loaded */
                 $("#container").fadeIn(2000); /* Display the content */
-                $("#loader").fadeOut(); /* Hide the loader */
+                $(".loader").fadeOut(); /* Hide the loader */
             });
             </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"> </script>
@@ -21,6 +36,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap" rel="stylesheet">
     </head>
     <body>      
+        
         <div class="center">
         </div>
         <!-- Snowfall Background Animation -->
